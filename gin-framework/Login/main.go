@@ -1,12 +1,11 @@
 package main
 
 import (
-	"net/http"
+	"Login/middlewear"
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-contrib/sessions/cookie"
 	"github.com/gin-gonic/gin"
-
-	"Login/middlewear"
+	"net/http"
 )
 
 func main() {
@@ -24,7 +23,7 @@ func main() {
 	const originalUsername = "nabeel"
 	const originalPassword = "nabeel123"
 
-	r.POST("/login", middlewear.LoginLogger() , func(c *gin.Context) {
+	r.POST("/login", middlewear.LoginLogger(), func(c *gin.Context) {
 		username := c.PostForm("username")
 		password := c.PostForm("password")
 
